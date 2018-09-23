@@ -45,12 +45,31 @@ void Ip::set_my_Ip(const char *device)
     getMyIP(device,&(this->val));
 }
 
-uint32_t* Ip::get_ip()
+uint32_t* Ip::get_ip_ptr()
 {
     return &this->val;
 }
 
+uint32_t Ip::get_ip()
+{
+    return this->val;
+}
+
 void Ip::set_rand_ip()
 {
+    srand(time(NULL));
+    val = (rand() % UINT32_MAX) + 1 ;
+}
+
+bool Ip::inc_ip_addr()
+{
+    // UINT32_MAX is broadcast. so campare with '<'
+    if( htonl(val) < UINT32_MAX)
+        val = ntohl(htonl(val) +1);
+    else
+        //if out of range when increase ip addr
+        return false;
+
+    return true;
 
 }
