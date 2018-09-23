@@ -18,8 +18,9 @@ public:
     Ip& operator=(uint32_t *op1);
     Ip& operator =(char* op1);
     uint32_t val; //IP
-    void getMyIp(const char *device);
-    uint32_t* retnIP();
+    void set_my_Ip(const char *device);
+    uint32_t* get_ip();
+    void set_rand_ip();
 
 };
 #endif // IP_H

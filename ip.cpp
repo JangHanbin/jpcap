@@ -40,12 +40,17 @@ bool Ip::operator==(uint32_t *op1)
 
 }
 
-void Ip::getMyIp(const char *device)
+void Ip::set_my_Ip(const char *device)
 {
     getMyIP(device,&(this->val));
 }
 
-uint32_t* Ip::retnIP()
+uint32_t* Ip::get_ip()
 {
     return &this->val;
+}
+
+void Ip::set_rand_ip()
+{
+
 }
