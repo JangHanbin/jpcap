@@ -13,6 +13,7 @@
 uint16_t calTCPChecksum(uint8_t *data,int dataLen)
 {
     //make Pseudo Header
+    //TODO : make PseudoHeader to potiner type to reduce buffer overhead
     struct Pseudoheader pseudoheader; //saved by network byte order
 
     //init Pseudoheader

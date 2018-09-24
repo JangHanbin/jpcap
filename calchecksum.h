@@ -19,10 +19,16 @@ struct Pseudoheader{
 #define CARRY 65536
 
 
+//blog : http://blog.dork94.com/10
+//pointer of IP header
+uint16_t calIPChecksum(uint8_t* data);
+//pointer of IP Header start, Whole data length from IP header start
 uint16_t calTCPChecksum(uint8_t *data,int dataLen);
+//pointer of IP Header start, Whole data length from IP header start
 uint16_t calICMPChecksum(uint8_t *data,int dataLen);
+//pointer of IP Header start, Whole data length from IP header start
 uint16_t calUDPChecksum(uint8_t *data, int dataLen);
 uint16_t calculate(uint16_t* data, int dataLen);
-uint16_t calIPChecksum(uint8_t* data);
+
 
 #endif // CALCHECKSUM_H
