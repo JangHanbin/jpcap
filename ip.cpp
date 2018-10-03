@@ -73,3 +73,27 @@ bool Ip::inc_ip_addr()
     return true;
 
 }
+
+uint32_t Ip::get_ip_broadcast(const char _class)
+{
+
+    //val already saved by Network byte order so that reconvert host order set.
+    //and return by network byte order
+
+    switch (_class) {
+    case 'a':
+        return htonl(((ntohl(val) >> 24) << 24 )+ 0x00ffffff);
+        break;
+
+    case 'b':
+        return htonl(((ntohl(val) >> 16) << 16 )+ 0x0000ffff);
+        break;
+
+    case 'c':
+        return htonl(((ntohl(val) >> 8) << 8 )+ 0x000000ff);
+        break;
+
+    default:
+        return 0;
+    }
+}

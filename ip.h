@@ -9,6 +9,9 @@
 
 #define IP_ADDR_LEN 4
 
+//This Class made for Little Endian System.
+//All values And Functions design for Network Byte order.
+//TODO : make each endian type value
 class Ip{
 
 public:
@@ -23,6 +26,7 @@ public:
     uint32_t get_ip();
     void set_rand_ip();
     bool inc_ip_addr();
+    uint32_t get_ip_broadcast(const char _class);
 
 };
 #endif // IP_H
