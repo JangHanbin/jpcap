@@ -80,7 +80,11 @@ uint32_t Ip::get_ip_broadcast(const char _class)
     //val already saved by Network byte order so that reconvert host order set.
     //and return by network byte order
 
-    switch (_class) {
+    char network_class=_class;
+    if(isupper(_class))
+        network_class += 32;
+
+    switch (network_class) {
     case 'a':
         return htonl(((ntohl(val) >> 24) << 24 )+ 0x00ffffff);
         break;
@@ -94,6 +98,7 @@ uint32_t Ip::get_ip_broadcast(const char _class)
         break;
 
     default:
-        return 0;
+        std::cout<<"Wrong class type. Please check your network class"<<std::endl;
+        exit(1);
     }
 }
