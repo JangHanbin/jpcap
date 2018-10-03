@@ -20,7 +20,7 @@ Ip& Ip::operator=(uint32_t *op1)
 }
 
 
-Ip& Ip::operator=(char* op1)
+Ip& Ip::operator=(const char *op1)
 {
     inet_pton(AF_INET,op1,&this->val);
     return *this;
