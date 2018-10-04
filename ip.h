@@ -27,6 +27,7 @@ public:
     void set_rand_ip();
     bool inc_ip_addr();
     uint32_t get_ip_broadcast(const char _class);
+    //TODO: make get ip broadcast function using network prefix
 
 };
 #endif // IP_H
